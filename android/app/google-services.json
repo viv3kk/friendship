@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "870562139517",
+    "project_id": "friendship-abfa3",
+    "storage_bucket": "friendship-abfa3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:870562139517:android:bda4d964928c5c42a15014",
+        "android_client_info": {
+          "package_name": "com.friendship"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "870562139517-39jp5l4e2hgeh2dfao9u2ual79ri9r64.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCB3w0o011wd9W4lYUQTkBa2mLyNLD3aPE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "870562139517-39jp5l4e2hgeh2dfao9u2ual79ri9r64.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
