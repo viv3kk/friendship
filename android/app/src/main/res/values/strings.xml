@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">friendship</string>
+    <string moduleConfig="true" name="CodePushDeploymentKey">ZyJD1iiNvhJJLkY6Ab6ZbztaDrNtPFGDowvcq</string>
+    <!-- <string moduleConfig="true" name="Staging">CFgaGgPduaqu_EENWn_gbsFxMIOAHEHfMlb-7</string> -->
 </resources>
