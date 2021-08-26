@@ -18,7 +18,7 @@ export default SplashScreen = ({navigation}) => {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <LottieView
-        source={require('./images/splash-lottie.json')}
+        source={require('./images/dino.json')}
         ref={animation}
         loop={true}
         autoSize={false}

@@ -73,11 +73,11 @@ class App extends React.Component {
               headerBackVisible: false,
               title: 'Niks & Viks... to the moon',
               headerStyle: {
-                backgroundColor: '#f4511e',
+                backgroundColor: 'black',
               },
               headerTintColor: '#fff',
               headerTitleStyle: {
-                fontWeight: '200',
+                fontWeight: '100',
               },
             }}
           />
