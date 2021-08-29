@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
+    "and": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "release": "cd android && ./gradlew assembleRelease",
@@ -33,9 +33,12 @@
     "react-native-device-info": "^8.3.1",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-modal": "^12.0.3",
+    "react-native-paper": "^4.9.2",
     "react-native-reanimated": "^2.2.0",
     "react-native-safe-area-context": "^3.3.0",
     "react-native-screens": "^3.6.0",
+    "react-native-swiper": "^1.6.0",
+    "react-native-vector-icons": "^8.1.0",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

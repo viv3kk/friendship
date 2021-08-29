@@ -7,6 +7,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from './src/screens/home';
 import Splash from './src/screens/splash';
 import Message from './src/screens/message';
+import Niks from './src/screens/niks';
+
 const codePushOptions = {
   checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
   installMode: CodePush.InstallMode.IMMEDIATE,
@@ -52,6 +54,22 @@ class App extends React.Component {
             options={{headerShown: false}}
           />
           <Stack.Screen
+            name="Niks"
+            component={Niks}
+            options={{
+              headerBackVisible: false,
+              title: 'Niks & Viks... on jupitor',
+              headerStyle: {
+                backgroundColor: 'black',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: '200',
+              },
+            }}
+          />
+
+          <Stack.Screen
             name="Message"
             component={Message}
             options={{
@@ -70,6 +88,7 @@ class App extends React.Component {
             name="Home"
             component={Home}
             options={{
+              headerShown: false,
               headerBackVisible: false,
               title: 'Niks & Viks... to the moon',
               headerStyle: {

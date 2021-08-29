@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-start',
+    marginBottom: 24,
   },
   lottieContainer: {
     // borderWidth: 1,
