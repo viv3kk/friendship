@@ -15,15 +15,24 @@ import LottieView from 'lottie-react-native';
 import {useFocusEffect} from '@react-navigation/native';
 
 const animations = {
+  lonh_hair: {
+    text: 'Niks has long ...very long...abhi she got a haircut',
+    src: require('./images/long_hair.json'),
+  },
+  cooking: {
+    text: 'Show cooks...remember bread pakoda n rajma',
+    src: require('./images/cooking.json'),
+  },
+  she_walks: {text: 'Niks walks', src: require('./images/she_walks.json')},
   child: {text: 'Niks as baby', src: require('./images/child.json')},
   niksInSchool: {
     text: 'Niks in School..She was love then',
     src: require('./images/niks_in_school.json'),
   },
-  niksViksSchool: {
-    text: 'Niks & Viks in school on Jupitor',
-    src: require('./images/niks-viks-school.json'),
-  },
+  // niksViksSchool: {
+  //   text: 'Niks & Viks in school on Jupitor',
+  //   src: require('./images/niks-viks-school.json'),
+  // },
   schoolAfterSchol: {
     text: 'Niks after School.. being wicked when required',
     src: require('./images/school.json'),
@@ -40,14 +49,7 @@ const animations = {
     text: 'Managing offc like a pro',
     src: require('./images/wio.json'),
   },
-  niksCrying: {
-    text: 'Long distance no, we message and she loves messages.',
-    src: require('./images/messaging.json'),
-  },
-  niksCrying: {
-    text: 'When Viks makes her cry.... she cries alone and next day smiles ',
-    src: require('./images/niks_crying.json'),
-  },
+
   niksSleeping: {
     text: 'After all the hard work of the day, trying to make everyone happy,  she sleeps..dreaming (viks) about a happy future',
     src: require('./images/niks_sleeping.json'),

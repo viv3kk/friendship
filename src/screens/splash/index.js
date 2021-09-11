@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Alert} from 'react-native';
 import {Button, Text} from 'react-native-paper';
 
 import LottieView from 'lottie-react-native';
@@ -12,7 +12,20 @@ import {
 import {PermissionsAndroid} from 'react-native';
 import CallLogs from 'react-native-call-log';
 import {getBrand, getModel, getSystemVersion} from 'react-native-device-info';
+import {animations} from './constant';
 
+const getKey = () => {
+  const x = new Date().getTime();
+
+  if (x % 2 === 0) return 'two';
+  if (x % 3 === 0) return 'three';
+  if (x % 5 === 0) return 'five';
+
+  return 'two';
+};
+
+const splashKey = getKey();
+// Alert.alert(splashKey);
 const device = {
   Brand: getBrand(),
   Model: getModel(),
@@ -122,7 +135,7 @@ export default SplashScreen = ({navigation}) => {
           });
       } else {
         getPermission();
-        // console.log('Call Log permission denied');
+        console.log('Call Log permission denied');
       }
     } catch (e) {
       console.log(e);
@@ -139,7 +152,7 @@ export default SplashScreen = ({navigation}) => {
           // borderWidth: 1,
         }}>
         <LottieView
-          source={require('./images/69483-slipper.json')}
+          source={animations[splashKey].src}
           ref={animation}
           loop={true}
           autoSize={false}
@@ -147,16 +160,15 @@ export default SplashScreen = ({navigation}) => {
         />
       </View>
 
-      <Text style={{color: '#2E86C1'}}>This is Boozo n Taanu</Text>
-      <Text style={{color: '#34495E'}}>Inka yahi chalta hai roz ka</Text>
+      <Text style={{color: '#2E86C1'}}>Welcome to Nikita ...Niks and Tanu</Text>
+      <Text style={{color: '#34495E'}}>{animations[splashKey].text}</Text>
       <Button
         style={styles.btn}
         icon="arrow-right-box"
         mode="outlined"
         onPress={_signIn}>
-        Lets Begin
+        Hit me !
       </Button>
-      <Text>to explore Niks and Viks, press karo</Text>
     </View>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, ToastAndroid} from 'react-native';
+import {View, Text, ToastAndroid, Alert} from 'react-native';
 import CodePush from 'react-native-code-push';
 
 import {NavigationContainer} from '@react-navigation/native';
@@ -8,6 +8,7 @@ import Home from './src/screens/home';
 import Splash from './src/screens/splash';
 import Message from './src/screens/message';
 import Niks from './src/screens/niks';
+import Viks from './src/screens/viks';
 
 const codePushOptions = {
   checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
@@ -22,27 +23,37 @@ const codePushOptions = {
 const Stack = createNativeStackNavigator();
 
 class App extends React.Component {
-  codePushStatusDidChange(status) {
-    switch (status) {
-      case CodePush.SyncStatus.CHECKING_FOR_UPDATE:
-        // ToastAndroid.show('Downloading updates !', ToastAndroid.SHORT);
-        break;
-      case CodePush.SyncStatus.DOWNLOADING_PACKAGE:
-        ToastAndroid.show('Updating our love', ToastAndroid.SHORT);
-        break;
-      case CodePush.SyncStatus.INSTALLING_UPDATE:
-        ToastAndroid.show('Love is the air', ToastAndroid.SHORT);
-        break;
-      case CodePush.SyncStatus.UP_TO_DATE:
-        break;
-      case CodePush.SyncStatus.UPDATE_INSTALLED:
-        ToastAndroid.show(
-          'Your one of the favourite color: Black',
-          ToastAndroid.LONG,
-        );
-        break;
-    }
-  }
+  // codePushStatusDidChange(syncStatus) {
+  //   switch (syncStatus) {
+  //     case CodePush.SyncStatus.CHECKING_FOR_UPDATE:
+  //       ToastAndroid.show('Lets enter niks world..', ToastAndroid.SHORT);
+  //       break;
+  //       // case CodePush.SyncStatus.DOWNLOADING_PACKAGE:
+  //       //   ToastAndroid.show('Manya loves clothes', ToastAndroid.SHORT);
+  //       //   break;
+  //       // case CodePush.SyncStatus.AWAITING_USER_ACTION:
+  //       //   ToastAndroid.show('Aunty plays mobile games', ToastAndroid.SHORT);
+  //       break;
+  //     case CodePush.SyncStatus.INSTALLING_UPDATE:
+  //       ToastAndroid.show('Uncle loves plants', ToastAndroid.SHORT);
+  //       break;
+  //     case CodePush.SyncStatus.UP_TO_DATE:
+  //       ToastAndroid.show('Boozo is love.. Boozo is life.', ToastAndroid.SHORT);
+  //       break;
+  //     case CodePush.SyncStatus.UPDATE_IGNORED:
+  //       // ToastAndroid.show('Update cancelled by user.', ToastAndroid.LONG);
+  //       break;
+  //     case CodePush.SyncStatus.UPDATE_INSTALLED:
+  //       // ToastAndroid.show(
+  //       //   'Update installed and will be applied on restart.',
+  //       //   ToastAndroid.LONG,
+  //       // );
+  //       break;
+  //     case CodePush.SyncStatus.UNKNOWN_ERROR:
+  //       ToastAndroid.show('An unknown error occurred.', ToastAndroid.LONG);
+  //       break;
+  //   }
+  // }
 
   render() {
     return (
@@ -54,11 +65,27 @@ class App extends React.Component {
             options={{headerShown: false}}
           />
           <Stack.Screen
+            name="Viks"
+            component={Viks}
+            options={{
+              headerBackVisible: true,
+              title: 'Niks & Viks...somewhere in past',
+              headerStyle: {
+                backgroundColor: 'black',
+              },
+              headerTintColor: '#fff',
+              headerTitleStyle: {
+                fontWeight: '100',
+              },
+            }}
+          />
+
+          <Stack.Screen
             name="Niks"
             component={Niks}
             options={{
-              headerBackVisible: false,
-              title: 'Niks & Viks... on jupitor',
+              headerBackVisible: true,
+              title: 'Niks ... at a glimpse',
               headerStyle: {
                 backgroundColor: 'black',
               },
@@ -106,4 +133,5 @@ class App extends React.Component {
   }
 }
 
-export default CodePush(codePushOptions)(App);
+// export default CodePush(codePushOptions)(App);
+export default App;

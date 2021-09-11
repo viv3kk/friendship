@@ -15,7 +15,7 @@ import LottieView from 'lottie-react-native';
 import firestore from '@react-native-firebase/firestore';
 import {useFocusEffect} from '@react-navigation/native';
 
-// import {IMAGES_RAW} from '../../../images';
+// import {IMAGES_RAW} from '../../../b_imgs';
 
 // IMAGES_RAW.map((item, idx) => {
 //   firestore()
@@ -26,6 +26,11 @@ import {useFocusEffect} from '@react-navigation/native';
 //       console.log('item added!');
 //     });
 // });
+
+const loader = {
+  dino: require('./images/dino.json'),
+  boozo: require('../splash/images/69483-slipper.json'),
+};
 
 const Home = ({navigation}) => {
   const [images, setImages] = useState([]);
@@ -63,7 +68,7 @@ const Home = ({navigation}) => {
   }, []);
 
   return (
-    <ImageBackground style={{flex: 1}} source={require('./images/bg4.jpg')}>
+    <ImageBackground style={{flex: 1}} source={require('./images/bg3.jpg')}>
       {activeIndex ? (
         <Swiper
           showsPagination={false}
@@ -96,7 +101,7 @@ const Home = ({navigation}) => {
             // borderWidth: 1,
           }}>
           <LottieView
-            source={require('./images/dino.json')}
+            source={loader.boozo}
             ref={animation}
             loop={true}
             autoSize={false}
@@ -116,11 +121,11 @@ const Home = ({navigation}) => {
             style={styles.btn}
             mode="outlined"
             onPress={() => {
-              navigation.navigate('Message');
+              navigation.navigate('Viks');
             }}
             uppercase={false}
             compact>
-            {`<- Viks`}
+            <Text style={{color: '#ffff'}}>{`<= Viks`}</Text>
           </Button>
 
           <Button
@@ -130,7 +135,7 @@ const Home = ({navigation}) => {
               navigation.navigate('Niks');
             }}
             uppercase={false}>
-            {`Niks ->`}
+            <Text style={{color: '#ffff'}}>{`Niks =>`}</Text>
           </Button>
         </View>
       )}
@@ -154,7 +159,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   btn: {
-    width: 100,
+    width: 120,
     marginTop: 0,
     marginBottom: 0,
     borderRadius: 20,

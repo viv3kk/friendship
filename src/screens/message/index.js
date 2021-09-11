@@ -76,7 +76,7 @@ export default Message = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'flex-start',
     marginBottom: 24,
